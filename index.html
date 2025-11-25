@@ -7,7 +7,20 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="page">
+  <div id="login" class="login-screen">
+    <div class="login-card">
+      <h1>Fuchsgeier</h1>
+      <p>Nur für dich</p>
+      <form id="pwForm">
+        <label for="pwInput">Passwort</label>
+        <input id="pwInput" type="password" autocomplete="current-password" placeholder="Geheimwort eingeben">
+        <button type="submit">Rein da</button>
+        <div id="pwError" class="login-error" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+
+  <div id="app" class="page hidden">
     <header class="header">
       <div class="brand">
         <div class="brand-logo">FG</div>
