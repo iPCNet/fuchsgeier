@@ -2,25 +2,74 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
-  <title>Fuchsgeier 🦊🦅</title>
+  <title>Fuchsgeier – Job-Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="wrapper">
-    <h1>Fuchsgeier 🦊🦅</h1>
-    <p>Er sucht. Er findet. Er geiert.</p>
+  <div class="page">
+    <header class="header">
+      <div class="brand">
+        <div class="brand-logo">FG</div>
+        <div class="brand-text">
+          <h1>Fuchsgeier</h1>
+          <p>Dein kleines Job-Dashboard</p>
+        </div>
+      </div>
+      <div class="header-meta">
+        <div class="pill pill-soft" id="lastUpdated">Lade Daten…</div>
+      </div>
+    </header>
 
-    <section class="section">
-      <h2>Heutige Treffer</h2>
-      <div id="jobs">Lädt…</div>
-    </section>
+    <main class="main">
+      <section class="panel">
+        <h2>Filter</h2>
+        <div class="filters">
+          <div class="filter-group">
+            <label for="searchInput">Suchen im Titel/Link</label>
+            <input id="searchInput" type="text" placeholder="z.B. Buchwissenschaft, Lektorat" autocomplete="off">
+          </div>
 
-    <section class="section">
-      <h2>Aktive Stichwörter</h2>
-      <div id="keywords">Lädt…</div>
-    </section>
-  </main>
+          <div class="filter-group">
+            <label for="prioritySelect">Priorität</label>
+            <select id="prioritySelect">
+              <option value="all">Alle Treffer</option>
+              <option value="2">Nur hohe Priorität</option>
+              <option value="1">Nur normale Priorität</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="keywords-box">
+          <div class="keywords-title">
+            <span>Aktive Stichwörter</span>
+          </div>
+          <div id="keywords" class="keywords-list">
+            <span class="pill pill-ghost">Lade Stichwörter…</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel jobs-panel">
+        <div class="jobs-header">
+          <h2>Treffer</h2>
+          <div class="jobs-count" id="jobsCount">0 Treffer</div>
+        </div>
+        <div id="jobsContainer" class="jobs-list">
+          <div class="empty-state">
+            <h3>Noch keine Daten</h3>
+            <p>Wenn der Fuchsgeier das nächste Mal läuft, tauchen hier Treffer auf.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Fuchsgeier</span>
+      <span class="dot">•</span>
+      <span>läuft im Hintergrund auf deinem Pi</span>
+    </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>
