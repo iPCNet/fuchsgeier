@@ -1,3 +1,109 @@
 {
-  "jobs": []
+  "jobs": [
+    {
+      "title": "Anmelden",
+      "url": "https://accounts.google.com/ServiceLogin?hl=de&continue=https://www.google.com/search?q%3Dbuchwissenschaft%2Bstellenangebot&gae=cb-none",
+      "source": "google",
+      "fetched_at": "2025-11-25T15:30:05.644622",
+      "priority": 1
+    },
+    {
+      "title": "Anmelden",
+      "url": "https://accounts.google.com/ServiceLogin?hl=de&continue=https://www.google.com/search?q%3Dbuchwissenschaft%2Bstellenangebot&gae=cb-none",
+      "source": "google",
+      "fetched_at": "2025-11-25T15:30:05.645060",
+      "priority": 1
+    },
+    {
+      "title": "Weitere Optionen",
+      "url": "https://consent.google.com/dl?continue=https://www.google.com/search?q%3Dbuchwissenschaft%2Bstellenangebot&gl=DE&hl=de&cm=2&pc=srp&uxe=none&src=1&escs=ATOEXqLpNj4BZj3PFV7pA3BiKHkwZltwvDHCeDQNZoi2Cqg2wloegNwCHrxibWh7qD8mW4NLT5f1yCmU8Ur5nDVzZQ5FvAmt3rDc",
+      "source": "google",
+      "fetched_at": "2025-11-25T15:30:05.645420",
+      "priority": 1
+    },
+    {
+      "title": "Anmelden",
+      "url": "https://accounts.google.com/ServiceLogin?hl=de&continue=https://www.google.com/search?q%3Dbibliothek%2Bstellenangebot&gae=cb-none",
+      "source": "google",
+      "fetched_at": "2025-11-25T15:30:06.379187",
+      "priority": 1
+    },
+    {
+      "title": "Anmelden",
+      "url": "https://accounts.google.com/ServiceLogin?hl=de&continue=https://www.google.com/search?q%3Dbibliothek%2Bstellenangebot&gae=cb-none",
+      "source": "google",
+      "fetched_at": "2025-11-25T15:30:06.379458",
+      "priority": 1
+    },
+    {
+      "title": "Weitere Optionen",
+      "url": "https://consent.google.com/dl?continue=https://www.google.com/search?q%3Dbibliothek%2Bstellenangebot&gl=DE&hl=de&cm=2&pc=srp&uxe=none&src=1&escs=ATOEXqJv7ipfuFO3YZsw8j-drb7yCijjzWRYAphMyz_hQ7wB0_rjz0QNThv_GC8nISm3NfkOXemDjn9l688nnTr1bqYs3ewjk691",
+      "source": "google",
+      "fetched_at": "2025-11-25T15:30:06.379787",
+      "priority": 1
+    },
+    {
+      "title": "Anmelden",
+      "url": "https://accounts.google.com/ServiceLogin?hl=de&continue=https://www.google.com/search?q%3Dverlag%2Bstellenangebot&gae=cb-none",
+      "source": "google",
+      "fetched_at": "2025-11-25T15:30:07.092941",
+      "priority": 1
+    },
+    {
+      "title": "Anmelden",
+      "url": "https://accounts.google.com/ServiceLogin?hl=de&continue=https://www.google.com/search?q%3Dverlag%2Bstellenangebot&gae=cb-none",
+      "source": "google",
+      "fetched_at": "2025-11-25T15:30:07.093214",
+      "priority": 1
+    },
+    {
+      "title": "Weitere Optionen",
+      "url": "https://consent.google.com/dl?continue=https://www.google.com/search?q%3Dverlag%2Bstellenangebot&gl=DE&hl=de&cm=2&pc=srp&uxe=none&src=1&escs=ATOEXqKRyROUviUB3pwX13e62oW9GOQ81CLAXDtsj3vC8Dg89WzCIh1tvKANLUJkkgjTq04AYl-SR2Txht2ZD9Vp8ASPc_rz9eY2",
+      "source": "google",
+      "fetched_at": "2025-11-25T15:30:07.093542",
+      "priority": 1
+    },
+    {
+      "title": "Anmelden",
+      "url": "https://accounts.google.com/ServiceLogin?hl=de&continue=https://www.google.com/search?q%3Dlektorat%2Bstellenangebot&gae=cb-none",
+      "source": "google",
+      "fetched_at": "2025-11-25T15:30:07.807983",
+      "priority": 1
+    },
+    {
+      "title": "Anmelden",
+      "url": "https://accounts.google.com/ServiceLogin?hl=de&continue=https://www.google.com/search?q%3Dlektorat%2Bstellenangebot&gae=cb-none",
+      "source": "google",
+      "fetched_at": "2025-11-25T15:30:07.808250",
+      "priority": 1
+    },
+    {
+      "title": "Weitere Optionen",
+      "url": "https://consent.google.com/dl?continue=https://www.google.com/search?q%3Dlektorat%2Bstellenangebot&gl=DE&hl=de&cm=2&pc=srp&uxe=none&src=1&escs=ATOEXqKrz2YwYDtnmApFScBzQUJ0Gv-QZv5uECWsW9PKt0KGhzGrj7jEuYFj5y46Cs3pRexbBtUFBAwTC4UIV1ZMff8EnFpV1uUJ",
+      "source": "google",
+      "fetched_at": "2025-11-25T15:30:07.808585",
+      "priority": 1
+    },
+    {
+      "title": "Anmelden",
+      "url": "https://accounts.google.com/ServiceLogin?hl=de&continue=https://www.google.com/search?q%3Dkulturwissenschaft%2Bstellenangebot&gae=cb-none",
+      "source": "google",
+      "fetched_at": "2025-11-25T15:30:08.522275",
+      "priority": 1
+    },
+    {
+      "title": "Anmelden",
+      "url": "https://accounts.google.com/ServiceLogin?hl=de&continue=https://www.google.com/search?q%3Dkulturwissenschaft%2Bstellenangebot&gae=cb-none",
+      "source": "google",
+      "fetched_at": "2025-11-25T15:30:08.522549",
+      "priority": 1
+    },
+    {
+      "title": "Weitere Optionen",
+      "url": "https://consent.google.com/dl?continue=https://www.google.com/search?q%3Dkulturwissenschaft%2Bstellenangebot&gl=DE&hl=de&cm=2&pc=srp&uxe=none&src=1&escs=ATOEXqKnU2WqMjAy4amRqxOdt6g-SDRNfD-CWDun_PzPHMeGAjJxwmmtEZ8taEmo_MTnMHVQCizyOW1ZncEIFIs_uqF9WjagALOD",
+      "source": "google",
+      "fetched_at": "2025-11-25T15:30:08.522893",
+      "priority": 1
+    }
+  ]
 }
