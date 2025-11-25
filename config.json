@@ -1,0 +1,17 @@
+{
+  "search_terms": [
+    "buchwissenschaft",
+    "lektorat",
+    "verlag",
+    "bibliothek"
+  ],
+  "blacklist_terms": [
+    "praktikum",
+    "werkstudent"
+  ],
+  "whitelist_terms": [
+    "festanstellung",
+    "remote",
+    "homeoffice"
+  ]
+}
