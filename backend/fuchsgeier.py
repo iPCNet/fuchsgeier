@@ -6,8 +6,8 @@ from bs4 import BeautifulSoup
 from datetime import datetime, timezone
 from urllib.parse import urlparse, unquote
 
-CONFIG_PATH = "/home/admin/fuchsgeier/config.json"
-JOBS_PATH = "/home/admin/fuchsgeier/jobs.json"
+CONFIG_PATH = "../config.json"
+JOBS_PATH = "../jobs.json"
 LOG_PATH = "/home/admin/fuchsgeier/logs/no_results.log"
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36"
 REQUEST_TIMEOUT = 10
@@ -35,7 +35,8 @@ def log_no_result(term):
 
 def fetch_html(url):
     try:
-        resp = requests.get(url, headers={"User-Agent": UA}, timeout=REQUEST_TIMEOUT)
+        resp = requests.get(url, headers={"User-Agent": UA})
+        print(f"check: {url}\n Got response: {resp.status_code} {resp}")
         if resp.status_code == 200:
             return resp.text, resp.url
         return None, None
@@ -113,62 +114,6 @@ def is_valid_job_title(title):
     return True
 
 
-def generate_mock_jobs(keyword, cfg):
-    """Generate realistic mock jobs for development/testing"""
-    max_follow = cfg.get("max_follow_per_term", DEFAULT_MAX_FOLLOW_PER_TERM)
-    results = []
-    
-    # Mock job templates based on keyword
-    mock_templates = {
-        "buchwissenschaft": [
-            ("Lektorin Buchwissenschaft (m/w/d)", "Bundesverband Autor/innnen", "Wir suchen eine erfahrene Lektorin mit Fokus auf Buchwissenschaft und literarisches Lektorat..."),
-            ("Wissenschaftliche Mitarbeiterin Buchwissenschaft", "Universität Hamburg", "Die Universität Hamburg sucht zum nächsten Wintersemester eine wissenschaftliche Mitarbeiterin..."),
-            ("Content Manager Publishing (Buchwissenschaft)", "Suhrkamp Verlag", "Für unser Publishing-Team suchen wir einen Content Manager mit Background in Buchwissenschaft..."),
-        ],
-        "lektorat": [
-            ("Freie Lektorin (m/w/d) gesucht", "Unabhängiger Verlag München", "Suche zuverlässige Lektorin für verschiedene Projekte im Belletristik- und Sachbuchbereich..."),
-            ("Lektorat Vollzeit (m/w/d)", "Fischer Verlag", "Der S. Fischer Verlag sucht eine/n erfahrene/n Lektor/in für unsere Belletristik-Linie..."),
-            ("Lektorat & Redaktion", "Heyne Verlag", "Wir suchen Verstärkung im Bereich Lektorat mit Schwerpunkt auf Genre-Literatur..."),
-        ],
-        "verlag": [
-            ("Verlagsleitung (m/w/d)", "Independ. Verlag Stuttgart", "Wir suchen zum nächstmöglichen Zeitpunkt eine erfahrene Verlagsleitung..."),
-            ("Verlags-Marketing Manager", "Random House", "Join our dynamic publishing team as Marketing Manager..."),
-            ("Produktmanagement Verlag", "Droemer Knaur", "Für unser Produktmanagement suchen wir einen erfahrenen Manager..."),
-        ],
-        "bibliothek": [
-            ("Bibliothekarin (m/w/d)", "Stadtbibliothek Berlin", "Wir suchen eine Bibliothekarin mit Erfahrung in Medienbestandsverwaltung..."),
-            ("Leitung Bereichsbibliothek", "Universitätsbibliothek München", "Die UB München sucht zum 01.01.2026 eine Leiterin für eine Bereichsbibliothek..."),
-            ("Bibliotheksassistentin (m/w/d)", "Württemberg-Bibliothek", "Für unser Team suchen wir eine Bibliotheksassistentin mit Organisationstalent..."),
-        ],
-        "kulturwissenschaft": [
-            ("Kulturwissenschaftlerin im Projekt", "Goethe-Institut", "Das Goethe-Institut sucht eine Kulturwissenschaftlerin für internationales Projekmanagement..."),
-            ("Kultur-Manager (m/w/d)", "Kunsthalle Hamburg", "Verstärke unser Team als Kultur-Manager mit Fokus auf Vermittlung..."),
-        ],
-    }
-    
-    # Get templates for this keyword or use generic ones
-    templates = mock_templates.get(keyword.lower(), [])
-    if not templates:
-        # Fallback: generic template
-        templates = [
-            (f"Position in {keyword}", "Unbekanntes Unternehmen", f"Suche nach Fachkraft im Bereich {keyword}..."),
-        ]
-    
-    # Create results from templates
-    for i, (title, company, desc) in enumerate(templates[:max_follow]):
-        results.append({
-            "title": title,
-            "url": f"https://example-jobs.de/job-{keyword.lower()}-{i}",
-            "snippet": desc[:200],
-            "company": company,
-            "source": "Mock (Development)",
-            "fetched_at": datetime.now(timezone.utc).isoformat()
-        })
-        print(f"    [+] {title[:60]}")
-    
-    return results
-
-
 def search_jobs_from_portals(keyword, cfg):
     """Scrape job portals - fallback to Wikipedia if needed"""
     max_follow = cfg.get("max_follow_per_term", DEFAULT_MAX_FOLLOW_PER_TERM)
@@ -177,9 +122,9 @@ def search_jobs_from_portals(keyword, cfg):
     
     # German job portals
     portals = [
-        ("Stellenanzeigen.de", f"https://www.stellenanzeigen.de/search?query={keyword.replace(' ', '+')}&searchtype=1"),
-        ("JobMarkt", f"https://www.jobmarkt.de/stellenangebot?search={keyword.replace(' ', '+')}&location="),
-        ("StepStone", f"https://www.stepstone.de/en/jobs--{keyword.replace(' ', '-')}"),
+        ("Stellenanzeigen.de", f"https://www.stellenanzeigen.de/suche/?fulltext={keyword.replace(' ', '+')}"),
+        #("JobMarkt", f"https://www.jobmarkt.de/stellenangebot?search={keyword.replace(' ', '+')}&location="),
+        ("StepStone", f"https://www.stepstone.de/jobs/{keyword.replace(' ', '-')}?searchOrigin=Homepage_top-search"),
     ]
     
     for portal_name, portal_url in portals:
@@ -188,7 +133,8 @@ def search_jobs_from_portals(keyword, cfg):
         print(f"  [Scraping] {portal_name}...")
         time.sleep(sleep_between)
         try:
-            resp = requests.get(portal_url, headers={"User-Agent": UA}, timeout=REQUEST_TIMEOUT)
+            resp = requests.get(portal_url, headers={"User-Agent": UA})
+            print(f"check: {portal_url}\n Got response: {resp.status_code} {resp}")
             if resp.status_code != 200:
                 print(f"    [Status] {resp.status_code}")
                 continue
@@ -240,7 +186,7 @@ def search_jobs_from_portals(keyword, cfg):
     # Fallback to mock data if no results from portals
     if not results:
         print(f"  [Fallback] Using mock data...")
-        results = generate_mock_jobs(keyword, cfg)
+        #results = generate_mock_jobs(keyword, cfg)
     
     return results
 
