@@ -13,5 +13,9 @@
     "festanstellung",
     "remote",
     "homeoffice"
-  ]
+  ],
+  "location": {
+    "zipcode": "90443",
+    "radius" : "100"
+  }
 }
